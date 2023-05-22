@@ -3,7 +3,7 @@ from fastInstall import install
 
 def info():
     print('       ╭╮\n       ┃┃\n╭━━┳╮ ╭┫┃╭━━┳━━┳━━┳━━┳━╮\n┃╭╮┃┃ ┃┃┃┃╭╮┃╭╮┃╭╮┃┃━┫╭╯\n┃╰╯┃╰━╯┃╰┫╰╯┃╰╯┃╰╯┃┃━┫┃\n┃╭━┻━╮╭┻━┻━━┻━╮┣━╮┣━━┻╯\n┃┃ ╭━╯┃     ╭━╯┣━╯┃\n╰╯ ╰━━╯     ╰━━┻━━╯')
-    print('----About--programm----\n--Author:\n--Version: 2.1\n-----------------------')
+    print('----About--programm----\n--Author: https://github.com/Prepodobnuy\n--Version: 2.1\n-----------------------')
 
 def changeName():
     print('Enter new logger name below')
